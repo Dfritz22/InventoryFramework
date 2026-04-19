@@ -136,7 +136,7 @@ namespace InventoryFramework.Editor
         [MenuItem("Tools/Inventory Framework/Validate/Find All Inventories in Scene")]
         private static void FindAllInventories()
         {
-            Inventory[] inventories = Object.FindObjectsByType<Inventory>(FindObjectsSortMode.None);
+            Inventory[] inventories = Object.FindObjectsByType<Inventory>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
             
             Debug.Log($"=== Found {inventories.Length} Inventory component(s) in scene ===");
             

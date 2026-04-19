@@ -93,7 +93,7 @@ namespace InventoryFramework.Editor
             {
                 if (GUILayout.Button("Find in Scene"))
                 {
-                    targetInventory = Object.FindFirstObjectByType<Inventory>();
+                    targetInventory = Object.FindAnyObjectByType<Inventory>();
                     if (targetInventory != null)
                     {
                         Debug.Log($"Found inventory: {targetInventory.gameObject.name}");
