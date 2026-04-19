@@ -38,7 +38,7 @@ namespace InventoryFramework.Editor
             serializedObject.Update();
 
             // Header with icon preview
-            DrawHeader();
+            DrawCustomHeader();
 
             EditorGUILayout.Space(10);
 
@@ -63,7 +63,7 @@ namespace InventoryFramework.Editor
             serializedObject.ApplyModifiedProperties();
         }
 
-        private void DrawHeader()
+        private void DrawCustomHeader()
         {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
             

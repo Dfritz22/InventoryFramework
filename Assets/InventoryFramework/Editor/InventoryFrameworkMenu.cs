@@ -136,7 +136,7 @@ namespace InventoryFramework.Editor
         [MenuItem("Tools/Inventory Framework/Validate/Find All Inventories in Scene")]
         private static void FindAllInventories()
         {
-            Inventory[] inventories = Object.FindObjectsOfType<Inventory>();
+            Inventory[] inventories = Object.FindObjectsByType<Inventory>(FindObjectsSortMode.None);
             
             Debug.Log($"=== Found {inventories.Length} Inventory component(s) in scene ===");
             
@@ -163,8 +163,12 @@ namespace InventoryFramework.Editor
             so.FindProperty("capacity").intValue = 20;
             so.ApplyModifiedProperties();
             
-            // Add example script
-            invGo.AddComponent<InventoryFramework.Samples.InventoryExample>();
+            // Add example script (using Type to avoid assembly reference issues)
+            var exampleType = System.Type.GetType("InventoryFramework.Samples.InventoryExample, Assembly-CSharp");
+            if (exampleType != null)
+            {
+                invGo.AddComponent(exampleType);
+            }
             
             Undo.RegisterCreatedObjectUndo(invGo, "Create Demo Setup");
             Selection.activeGameObject = invGo;

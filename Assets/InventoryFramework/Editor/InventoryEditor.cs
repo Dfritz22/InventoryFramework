@@ -38,7 +38,7 @@ namespace InventoryFramework.Editor
             serializedObject.Update();
 
             // Header
-            DrawHeader();
+            DrawCustomHeader();
 
             EditorGUILayout.Space(10);
 
@@ -64,7 +64,7 @@ namespace InventoryFramework.Editor
             serializedObject.ApplyModifiedProperties();
         }
 
-        private void DrawHeader()
+        private void DrawCustomHeader()
         {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
             EditorGUILayout.LabelField("Inventory System", EditorStyles.boldLabel);
