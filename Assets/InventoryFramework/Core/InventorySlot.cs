@@ -76,10 +76,10 @@ namespace InventoryFramework.Core
 
             // Calculate how much can be added
             int space = item.MaxStackSize - quantity;
-            int toAdd = Mathf.Min(amount, space);
+            int amountToAdd = Mathf.Min(amount, space);
             
-            quantity += toAdd;
-            return amount - toAdd;
+            quantity += amountToAdd;
+            return amount - amountToAdd;
         }
 
         /// <summary>
